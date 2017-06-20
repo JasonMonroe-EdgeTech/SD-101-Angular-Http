@@ -5,21 +5,16 @@ import {DataService} from './data.service';
 
 @Component({
   selector: 'app-root',
-  template: `<div *ngIf="myData">
-                  <h2>{{myData.title}}</h2>
-                  <h2>{{myData.body}}</h2>
-             </div>
-             `
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit{
    myData: MyDataObject;
 
    constructor(private dataService: DataService){}
 
-
   getData(): void{
-    this.dataService.getData().then(myData=>{
-      this.myData = myData});
+    this.dataService.getData().then(myData=>
+      this.myData = myData);
   }
 
    ngOnInit(): void{
