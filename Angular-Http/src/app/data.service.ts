@@ -7,19 +7,25 @@ import {MyDataObject} from './data';
 @Injectable()
 export class DataService{
 
-  private productsURL = 'https://jsonplaceholder.typicode.com/posts/1';
+  private dataURL = 'https://saveData.php';
 
   constructor(private http: Http){}
 
+ saveData(myData: MyDataObject):void{
+
+ }
+
+
+
   getData():Promise<MyDataObject>{
 
-    return this.http.get(this.productsURL)
+    return this.http.get(this.dataURL)
               .toPromise()
               .then(response=>response.json() as MyDataObject)
               .catch(this.handleError);
   }
 
   handleError():void{
-    
+
   }
 }
